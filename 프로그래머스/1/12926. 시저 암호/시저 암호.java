@@ -10,11 +10,11 @@ class Solution {
                 continue;
             }
             char secondChars = ' ';
-            if (chars >= 'A' && chars <= 'Z') {
-                secondChars = 'A';
-            }
-            if (chars >= 'a' && chars <= 'z') {
+            if (Character.isLowerCase(chars)) {
                 secondChars = 'a';
+            }
+            if (Character.isUpperCase(chars)) {
+                secondChars = 'A';
             }
             chars += n;
 
