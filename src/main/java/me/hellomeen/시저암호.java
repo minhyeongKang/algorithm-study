@@ -3,28 +3,21 @@ package me.hellomeen;
 public class 시저암호 {
     public String solution(String s, int n) {
 
-        char[] chars = s.toCharArray();
+        char[] code = s.toCharArray();
         StringBuilder sb = new StringBuilder();
 
-        for (char A : chars) {
-            if (A >= 65 && A <= 90) {
-                A += n;
-                if (A > 90) {
-                    char B = (char) ((A - 65) % 26 + 65);
-                    sb.append(B);
-                    continue;
-                }
+        for (char chars : code) {
+            if (chars == ' ') {
+                sb.append(" ");
+                continue;
             }
+            char secondChars = ' ';
 
-            if (A >= 97 && A <= 122) {
-                A += n;
-                if (A > 122) {
-                    char B = (char) ((A - 97) % 26 + 97);
-                    sb.append(B);
-                    continue;
-                }
-            }
-            sb.append(A);
+            secondChars = (Character.isUpperCase(chars)) ? 'A' : 'a';
+            chars += n;
+
+            char shiftChars = (char) (secondChars + (chars - secondChars) % 26);
+            sb.append(shiftChars);
         }
 
         return sb.toString();
