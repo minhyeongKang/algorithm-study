@@ -1,8 +1,9 @@
-import java.util.ArrayList;
+import java.util.*;
 
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
+        
         ArrayList<Integer> burger = new ArrayList<>();
 
         for (int i = 0; i < ingredient.length; i++) {
@@ -14,10 +15,9 @@ class Solution {
                     && burger.get(burger.size()-1) == 1) {
                 answer ++;
                 
-                burger.remove(burger.size()-1);
-                burger.remove(burger.size()-1);
-                burger.remove(burger.size()-1);
-                burger.remove(burger.size()-1);
+                for (int j = 0; j < 4; j++) {
+                    burger.remove(burger.size()-1);    
+                }
             }
         }
 
